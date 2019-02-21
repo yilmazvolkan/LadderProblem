@@ -61,14 +61,9 @@ struct Trees
 
                 if(it2 == (*setOfQueries)[x].end()){
                     (*setOfQueries)[x].insert(*it);
-                    //cout << "check 1" << endl;
-                    //cout << *it << endl;
                 }
                 else{
-                    //cout << "check 2" << endl;
-                    //cout << *it << endl;
                     (*m)[*it] = w;
-                    //dumFile << w << endl;
                 }
             }
         }
@@ -78,20 +73,13 @@ struct Trees
                 set<int>::iterator it2 = (*setOfQueries)[y].find(*it);
                 if(it2 == (*setOfQueries)[y].end()){
                     (*setOfQueries)[y].insert(*it);
-                    //cout << "check 3" << endl;
-                    //cout << *it << endl;
                 }
                 else{
-                    //cout << "check 4" << endl;
-                    //cout << *it << endl;
                     (*m)[*it] = w;
-                    //dumFile << w << endl;
                 }
 
             }
         }
-        //cout << "qs " << (*(*setOfQueries)[6].begin()) << endl;
-        //cout << "parent " << x << " " << parent[x] << " -- "<< y << " " << parent[y] << endl;
         if (indices[x] == indices[y])
             indices[y]++;
     }
@@ -115,14 +103,10 @@ void Graph::kruskal(ofstream& dumFile,vector<set<int>>* setOfQueries)
 
         int set_u = ts.find(u);
         int set_v = ts.find(v);
-        //cout << "u " << u << " v " << v << endl;
 
         //Check cycles
         if (set_u != set_v)
         {
-            //cout << u << " - " << v << " - " << w << endl;
-            //cout << (*setOfQueries)[u].size() << endl
-            //cout << set_u << " - " << set_v << endl;
             ts.merge(set_u, set_v,setOfQueries,dumFile,w);
         }
     }
@@ -139,7 +123,7 @@ void split1(const string& str, Container& cont)
 }
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        cout << "Run the code with the following command: ./project4 [input_file] [output_file]" << endl;
+        cout << "Run the code with the following command: ./ladderProblem [input_file] [output_file]" << endl;
         return 1;
     }
     cout << "input file: " << argv[1] << endl;
@@ -168,18 +152,15 @@ int main(int argc, char* argv[]) {
             int a = stoi(words[j]); //weight
             if((i != 0 || j!=0) && j != M && j!=0) {
                 g.addEdge(index-1, index,abs(prevXV-a));
-                // cout << "YAN "<< "i: " << (index-1) << " i2: " << (index) << " val: " << abs(prevXV-a) << endl;
             }
             if(i != 0) {
                 g.addEdge(index-M, index,abs(prevVals[j]-a));
-                //cout << "ALT "<< "i: " << (index-M) << " i2: " << (index) << " val: " << abs(prevVals[j]-a) << endl;
             }
             prevVals[j] = a;
             prevXV = a;
             index++;
         }
     }
-
     getline(infile, line);
     vector<string> words2;
     split1(line, words2);
@@ -188,9 +169,6 @@ int main(int argc, char* argv[]) {
     int sink = 0;
     ofstream myFile;
     myFile.open(argv[2]);
-    //set<int> setOfQueries[V];
-    //set<int> *setOfQueries = new set<int>[V];
-    //vector <set<int>> *setOfQueries = new  vector <set<int>>(V);
     vector <set<int>> setOfQueries(V);
     for (int i = 0; i < I; i++) { //TODO I
         getline(infile, line);
@@ -198,11 +176,8 @@ int main(int argc, char* argv[]) {
         split1(line, words);
         source = N*(stoi(words[0])-1)+stoi(words[1])-1;
         sink = N*(stoi(words[2])-1)+stoi(words[3])-1;
-        //(*setOfQueries)[source].insert(i);
-        //(*setOfQueries)[sink].insert(i);
         setOfQueries[source].insert(i+1);
         setOfQueries[sink].insert(i+1);
-        //cout << "source " << source << " sink " << sink << endl;
     }
     g.kruskal(myFile, &setOfQueries);
     return 0;
