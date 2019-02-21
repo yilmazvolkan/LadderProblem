@@ -1,9 +1,11 @@
 # LadderProblem
 
+
 ## :tophat: Introduction
 
 
-
+Our wanderer lives in Gridland. Gridland consists of N rows and M columns where every point has a height. To go from one cell to it's adjacent ones wanderer needs a ladder which is at least as long as the height difference. For example to go from a cell which has height X to a cell which has height Y wanderer needs a ladder at least jX-Yj units long. Our wanderer wants to know the the shortest ladder which allows him to go from one given cell, X, to the other, Y.
+Our wanderer can only travel from a cell to it's adjacent ones in a single step.(i.e he can go 4 directions which are left,right,bottom and up.) The upper leftmost cell is (1,1) and the bottom rightmost cell is (N,M).
 
 ## :flashlight: How to compile
 
@@ -50,15 +52,15 @@ Print the answer for the each query, minimum length of the ladder that wanderer 
 ## :mushroom: Examples 
 
 
-<p align="center">
+<p align="left">
 <a href = "https://github.com/yilmazvolkan/LadderProblem/blob/master"><img 
-<img src="https://github.com/yilmazvolkan/LadderProblem/blob/master/sample1.png" width="150" height="250"></a>
+<img src="https://github.com/yilmazvolkan/LadderProblem/blob/master/sample1.png" width="350" height="250"></a>
 </p>
 
 
-<p align="center">
+<p align="left">
 <a href = "https://github.com/yilmazvolkan/LadderProblem/blob/master"><img 
-<img src="https://github.com/yilmazvolkan/LadderProblem/blob/master/sample2.png" width="150" height="250"></a>
+<img src="https://github.com/yilmazvolkan/LadderProblem/blob/master/sample2.png" width="350" height="300"></a>
 </p>
 
 
